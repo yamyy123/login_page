@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('frontform');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('logname').value;
+        const email = document.getElementById('logemail').value;
+        const password = document.getElementById('logpass').value;
+
+        // Check if the email already exists in localStorage
+        const storedEmail = localStorage.getItem('email');
+        
+        if (storedEmail === email) {
+            // Email already exists, throw an error
+            alert('Email already exists. Please use a different email address.');
+            document.getElementById('signup-name').value = '';
+            document.getElementById('signup-email').value = '';
+            document.getElementById('signup-pass').value = '';
+        } else {
+            // Email does not exist, proceed with sign up
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+            alert('Your details have been successfully stored. You can now go to the login form.');
+            document.getElementById('signup-name').value = '';
+            document.getElementById('signup-email').value = '';
+            document.getElementById('signup-pass').value = '';
+        }
+    });
+
+        const form1 = document.getElementById('logform');
+        form1.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-pass').value;
+            
+            // Check if the email already exists in localStorage
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+            
+            if (email === storedEmail && password === storedPassword) {
+                alert('You are verified!'); // Success message
+            } else {
+                alert('You are not verified!'); // Error message
+            }
+        });
+    })
+    </script>
+  </head>
+  <body>
+	<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+			          	<label for="reg-log"></label>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">Log In</h4>
+                                            <form id="logform">
+											<div class="form-group">
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="login-email" autocomplete="off">
+												<i class="input-icon uil uil-at"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="login-pass" autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<!--<a href="#" class="btn mt-4">submit</a>-->
+                                            <input type="submit" name="submit" class="btn mt-4" value="Log in" id="submit">
+                                        </form>
+                            				<p class="mb-0 mt-4 text-center"><a href="password1.html" class="link">Forgot your password?</a></p>
+				      					</div>
+			      					</div>
+			      				</div>
+								<div class="card-back">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">Sign Up</h4>
+                                            <form id="frontform">
+											<div class="form-group">
+												<input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="signup-name" autocomplete="off">
+												<i class="input-icon uil uil-user"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="signup-email" autocomplete="off">
+												<i class="input-icon uil uil-at"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="signup-pass" autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+									<!--  <a href="#" class="btn mt-4">submit</a>  -->	
+                                            <input type="submit" name="submit" class="btn mt-4" value="Sign in" id="submit">
+                                        </form>
+				      					</div>
+			      					</div>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+  </body>
+</html>
