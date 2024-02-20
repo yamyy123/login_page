@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Unicons Icons -->
+    <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+    <!-- Bootstrap CSS (Again?) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="icon" type="image/x-icon" href="logo12.png">
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            background-color: #1f2029;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .dashboard-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 60px; /* Adjusted margin-top to prevent overlap with the fixed navbar */
+        }
+
+        .dashboard-card {
+            width: 100%;
+            color: #c4c3ca;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 20px; /* Added margin-bottom for better spacing */
+            margin-top: 50px; 
+        }
+
+        .dashboard-card h4 {
+            color: #00ff6c;
+        }
+
+        .dashboard-card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            letter-spacing: 2px;
+        }
+
+        .dashboard-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .dashboard-card li {
+            padding: 5px 0;
+        }
+
+        .dashboard-card strong {
+            color: #00ff6c;
+        }
+
+        .dashboard-card .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #00ff6c;
+            color: #232323;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .dashboard-card .btn:hover {
+            background-color: #232323;
+            color: #00ff6c;
+        }
+
+        .bird-block {
+            position: relative;
+            width: 45%;
+            background-color: #2a2b38;
+            color: #c4c3ca;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0 10px 10px 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .bird-block:hover .bird-image {
+            transform: scale(1.1);
+        }
+
+        .bird-block h4 {
+            color: #00ff6c;
+        }
+
+        .bird-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover; 
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: transform 0.5s;
+        }
+
+        .bird-description {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .bird-block {
+                width: 100%; 
+            }
+        }
+
+        .typewriter-text {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto 20px;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .typewriter-fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s forwards; 
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        } 
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var text = "Discover the joy of aviculture with our premium selection of birds.";
+
+            var typewriterText = document.getElementById('typewriter-text');
+            var index = 0;
+
+            function type() {
+                if (index < text.length) {
+                    var char = text.charAt(index);
+                    var span = document.createElement('span');
+                    span.className = 'typewriter-fade-in';
+                    span.textContent = char;
+                    typewriterText.appendChild(span);
+                    index++;
+                    setTimeout(type, 30); 
+                }
+            }
+
+            type();
+        });
+    </script>
+
+</head>
+<body>
+
+    <div class="dashboard-navigation">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="#home" style="color:#00ff6c">Home</a>
+            <a href="#about">About-Us</a>
+            <a href="index.html" >Login/Sign Up</a>
+            <a href="#contactus">Contact-Us</a>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <h4><b>Welcome to our Royal Aviculture Farm</b></h4>
+        <div class="typewriter-text" id="typewriter-text"></div> 
+        <p>Why buy from us?</p>
+        <ul>
+            <li>Direct from the Source: Our birds are raised and nurtured on our farm, ensuring quality and authenticity.</li>
+            <li>Healthy and Happy Birds: We prioritize the well-being of our birds, providing them with the best care and environment.</li>
+            <li>Wide Variety: Explore a diverse range of bird species, each unique and captivating in its own way.</li>
+            <li>Expert Guidance: Our team of aviculture experts is here to assist you in choosing the perfect feathered companion.</li>
+        </ul>
+        <p>Shop with us today and bring the beauty of aviculture into your home!</p>
+        <p><a class="btn" href="#"><strong>Shop Now!</strong></a></p>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="bird-block">
+            <img class="bird-image" src="parrot.jpg" alt="Parrot Image">
+            <h4>Parrot</h4>
+            <p class="bird-description">
+                Parrots are colorful birds known for their intelligence and ability to mimic human speech. They are popular pets and are found in various species worldwide.
+            </p>
+        </div>
+
+        <div class="bird-block">
+            <img class="bird-image" src="finches.jpg" alt="Finch Image">
+            <h4>Finch</h4>
+            <p class="bird-description">
+                Finches are small, seed-eating birds known for their cheerful songs. They come in a variety of colors and are often kept as pets for their lively nature.
+            </p>
+        </div>
+
+        <div class="bird-block">
+            <img class="bird-image" src="finches.jpg" alt="Finch Image">
+            <h4>Finch</h4>
+            <p class="bird-description">
+                Finches are small, seed-eating birds known for their cheerful songs. They come in a variety of colors and are often kept as pets for their lively nature.
+            </p>
+        </div>
+
+        <div class="bird-block">
+            <img class="bird-image" src="finches.jpg" alt="Finch Image">
+            <h4>Finch</h4>
+            <p class="bird-description">
+                Finches are small, seed-eating birds known for their cheerful songs. They come in a variety of colors and are often kept as pets for their lively nature.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Royal Aviculture Farm. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

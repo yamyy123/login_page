@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
+    <title>roya</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
 	<link rel="stylesheet" href="styles.css" />
 	<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+    <link rel="icon" type="image/x-icon" href="logo12.png">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('frontform');
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-        const username = document.getElementById('logname').value;
-        const email = document.getElementById('logemail').value;
-        const password = document.getElementById('logpass').value;
-
+        const username = document.getElementById('signup-name').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-pass').value;
         // Check if the email already exists in localStorage
         const storedEmail = localStorage.getItem('email');
         
@@ -30,7 +30,7 @@
             localStorage.setItem('username', username);
             localStorage.setItem('email', email);
             localStorage.setItem('password', password);
-            alert('Your details have been successfully stored. You can now go to the login form.');
+            alert('Signedin Successfully');
             document.getElementById('signup-name').value = '';
             document.getElementById('signup-email').value = '';
             document.getElementById('signup-pass').value = '';
@@ -49,14 +49,33 @@
             
             if (email === storedEmail && password === storedPassword) {
                 alert('You are verified!'); // Success message
+                document.getElementById('login-email').value= '';
+                document.getElementById('login-pass').value= '';
             } else {
                 alert('You are not verified!'); // Error message
+                document.getElementById('login-email').value= '';
+                document.getElementById('login-pass').value= '';
             }
         });
     })
     </script>
+ 
   </head>
   <body>
+    <!--nav bar -->
+    <div class="dashboard-navigation">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="dashboard.html">Home</a>
+            <a href="#about">About-Us</a>
+            <a href="#login/signup" style="color:#00ff6c">Login/Sign Up</a>
+            <a href="#contactus">Contact-Us</a>
+        </div>
+    </div>
+
+    <!----->
 	<div class="section">
 		<div class="container">
 			<div class="row full-height justify-content-center">
@@ -117,5 +136,10 @@
 	      	</div>
 	    </div>
 	</div>
+    <!--footer bar-->
+    <footer>
+        <p>&copy; 2024 Royal Aviculture Farm. All rights reserved.</p>
+    </footer>
+        <!--footer bar-->
   </body>
 </html>
