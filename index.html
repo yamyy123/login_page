@@ -8,57 +8,7 @@
 	<link rel="stylesheet" href="styles.css" />
 	<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
     <link rel="icon" type="image/x-icon" href="logo12.png">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('frontform');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('signup-name').value;
-        const email = document.getElementById('signup-email').value;
-        const password = document.getElementById('signup-pass').value;
-        // Check if the email already exists in localStorage
-        const storedEmail = localStorage.getItem('email');
-        
-        if (storedEmail === email) {
-            // Email already exists, throw an error
-            alert('Email already exists. Please use a different email address.');
-            document.getElementById('signup-name').value = '';
-            document.getElementById('signup-email').value = '';
-            document.getElementById('signup-pass').value = '';
-        } else {
-            // Email does not exist, proceed with sign up
-            localStorage.setItem('username', username);
-            localStorage.setItem('email', email);
-            localStorage.setItem('password', password);
-            alert('Signedin Successfully');
-            document.getElementById('signup-name').value = '';
-            document.getElementById('signup-email').value = '';
-            document.getElementById('signup-pass').value = '';
-        }
-    });
-
-        const form1 = document.getElementById('logform');
-        form1.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-pass').value;
-            
-            // Check if the email already exists in localStorage
-            const storedEmail = localStorage.getItem('email');
-            const storedPassword = localStorage.getItem('password');
-            
-            if (email === storedEmail && password === storedPassword) {
-                alert('You are verified!'); // Success message
-                document.getElementById('login-email').value= '';
-                document.getElementById('login-pass').value= '';
-            } else {
-                alert('You are not verified!'); // Error message
-                document.getElementById('login-email').value= '';
-                document.getElementById('login-pass').value= '';
-            }
-        });
-    })
-    </script>
+    <script src="script.js"></script>
  
   </head>
   <body>
@@ -92,11 +42,11 @@
 											<h4 class="mb-4 pb-3">Log In</h4>
                                             <form id="logform">
 											<div class="form-group">
-												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="login-email" autocomplete="off">
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="login-email" autocomplete="off" required>
 												<i class="input-icon uil uil-at"></i>
 											</div>
 											<div class="form-group mt-2">
-												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="login-pass" autocomplete="off">
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="login-pass" autocomplete="off" required>
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
 											<!--<a href="#" class="btn mt-4">submit</a>-->
@@ -112,15 +62,15 @@
 											<h4 class="mb-4 pb-3">Sign Up</h4>
                                             <form id="frontform">
 											<div class="form-group">
-												<input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="signup-name" autocomplete="off">
+												<input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="signup-name" autocomplete="off" required>
 												<i class="input-icon uil uil-user"></i>
 											</div>
 											<div class="form-group mt-2">
-												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="signup-email" autocomplete="off">
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="signup-email" autocomplete="off" required>
 												<i class="input-icon uil uil-at"></i>
 											</div>
 											<div class="form-group mt-2">
-												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="signup-pass" autocomplete="off">
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="signup-pass" autocomplete="off" required>
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
 									<!--  <a href="#" class="btn mt-4">submit</a>  -->	
@@ -136,6 +86,9 @@
 	      	</div>
 	    </div>
 	</div>
+
+
+
     <!--footer bar-->
     <footer>
         <p>&copy; 2024 Royal Aviculture Farm. All rights reserved.</p>
