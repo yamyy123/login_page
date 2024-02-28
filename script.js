@@ -5,26 +5,47 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = document.getElementById('signup-name').value;
         const email = document.getElementById('signup-email').value;
         const password = document.getElementById('signup-pass').value;
-        // Check if the email already exists in localStorage
-        const storedEmail = localStorage.getItem('email');
-        
-        if (storedEmail === email) {
-            // Email already exists, throw an error
-            alert('Email already exists. Please use a different email address.');
-            document.getElementById('signup-name').value = '';
-            document.getElementById('signup-email').value = '';
-            document.getElementById('signup-pass').value = '';
-        } else {
-            // Email does not exist, proceed with sign up
-            localStorage.setItem('username', username);
-            localStorage.setItem('email', email);
-            localStorage.setItem('password', password);
-            alert('Signedin Successfully');
-            document.getElementById('signup-name').value = '';
-            document.getElementById('signup-email').value = '';
-            document.getElementById('signup-pass').value = '';
-        }
+    
+        // Create a user object to send in the request
+        const user = {
+            username: username,
+            email: email,
+            password: password
+        };
+    
+        // Make a POST request to the signup endpoint
+        fetch('/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+    
+            if (data.error) {
+                alert(data.error);
+            } else if (data.data) {
+                console.log('Signup successful:', data);
+                alert('Signup successful!');
+            } 
+        })
+        .catch(error => {
+            console.error('Error during signup:', error);
+            alert('Error during signup. Please try again.');
+        });
+    
+        // Clear the form fields
+        document.getElementById('signup-name').value = '';
+        document.getElementById('signup-email').value = '';
+        document.getElementById('signup-pass').value = '';
     });
+    
+
+
+
 
         const form1 = document.getElementById('logform');
         form1.addEventListener('submit', function(event) {
@@ -55,4 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('login-pass').value= '';
             }
         });
-    })
+    });
+
+
+    
